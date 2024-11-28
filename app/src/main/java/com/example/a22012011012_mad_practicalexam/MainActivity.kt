@@ -9,14 +9,12 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -63,7 +61,15 @@ fun EventDetailsScreen() {
                         Icon(Icons.Filled.Share, contentDescription = "Share")
                     }
                 }
+
             )
+            IconButton(onClick = { /* Handle back action */ }) {
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+            }
+            IconButton(onClick = { /* Handle share action */ }) {
+                Icon(Icons.Filled.Share, contentDescription = "Share")
+            }
+            Icon(Icons.Filled.Star, contentDescription = "Star", tint = Color.Yellow)
         }
     ) { innerPadding ->
         Column(
@@ -85,19 +91,13 @@ fun EventDetailsScreen() {
             )
 
             Spacer(modifier = Modifier.height(16.dp))
-            IconButton(onClick = { /* Handle back action */ }) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
-            }
-            IconButton(onClick = { /* Handle share action */ }) {
-                Icon(Icons.Filled.Share, contentDescription = "Share")
-            }
-            Icon(Icons.Filled.Star, contentDescription = "Star", tint = Color.Yellow)
 
             // Event Title and Description
             Text(
                 text = "Tech Conference 2024",
                 style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                Size = 25.dp
             )
             Text(
                 text = "Mehsana, Gujarat | 2.5 km away",
